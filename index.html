@@ -285,17 +285,39 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:64px 4
 <body>
 
 <!-- LOADER -->
+<!-- THE CLEAN LOADER (No "R") -->
 <div id="loader">
-  <div class="logo-loader">R</div> <!-- This is your "R" -->
-  <div class="loader-bar" style="width: 100px; height: 2px; background: rgba(255,255,255,0.1); position: relative; overflow: hidden;">
-    <div style="position: absolute; height: 100%; width: 50%; background: #cc0000; animation: loading 1s infinite linear;"></div>
+  <!-- The giant R was here, now it's gone! -->
+  <div class="loader-bar" style="width: 120px; height: 3px; background: rgba(255,255,255,0.1); position: relative; overflow: hidden; border-radius: 10px;">
+    <div style="position: absolute; height: 100%; width: 50%; background: #cc0000; animation: loading 1.5s infinite ease-in-out;"></div>
   </div>
+  <p style="color: white; font-family: sans-serif; font-size: 12px; margin-top: 15px; letter-spacing: 2px; opacity: 0.6;">LOADING</p>
 </div>
 
 <style>
+/* This makes the red bar slide back and forth */
 @keyframes loading {
   0% { left: -50%; }
+  50% { left: 25%; }
   100% { left: 100%; }
+}
+
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#loader.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 </style>
 
