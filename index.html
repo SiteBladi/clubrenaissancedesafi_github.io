@@ -742,13 +742,11 @@ function createParticles(){
 createParticles();
 
 // ── LOADER ──
-window.addEventListener('load',()=>{
-  setTimeout(()=>{
-    const l=document.getElementById('loader');
-    l.classList.add('hide');
-    setTimeout(()=>l.style.display='none',600);
-  },800);
-});
+setTimeout(()=>{
+  const l=document.getElementById('loader');
+  l.classList.add('hide');
+  setTimeout(()=>l.style.display='none',600);
+},1000);
 
 // ── SCROLL REVEAL ──
 const obs=new IntersectionObserver((entries)=>{
