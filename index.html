@@ -286,13 +286,18 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:64px 4
 
 <!-- LOADER -->
 <div id="loader">
-  <div style="position:relative;width:80px;height:80px;display:flex;align-items:center;justify-content:center;">
-    <div class="loader-ring"></div>
-    <div class="loader-r">R</div>
+  <div class="logo-loader">R</div> <!-- This is your "R" -->
+  <div class="loader-bar" style="width: 100px; height: 2px; background: rgba(255,255,255,0.1); position: relative; overflow: hidden;">
+    <div style="position: absolute; height: 100%; width: 50%; background: #cc0000; animation: loading 1s infinite linear;"></div>
   </div>
-  <div class="loader-name">Club Renaissance · آسفي</div>
-  <div class="loader-bar-wrap"><div class="loader-bar-fill"></div></div>
 </div>
+
+<style>
+@keyframes loading {
+  0% { left: -50%; }
+  100% { left: 100%; }
+}
+</style>
 
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
