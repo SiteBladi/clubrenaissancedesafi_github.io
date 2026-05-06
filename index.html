@@ -606,8 +606,7 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:64px 4
         </div>
       </div>
       <div class="contact-cards">
-        <div class="c-card" onclick="window.open('tel:0667-069474
-')">
+        <div class="c-card" onclick="window.open('tel:0667069474')">
           <div class="c-card-icon">📞</div>
           <div><div class="c-card-label">هاتف</div><div class="c-card-val">اتصل بنا مباشرة</div></div>
         </div>
@@ -638,8 +637,7 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:64px 4
         <div class="soc-btn" onclick="window.open('https://www.instagram.com/clubrenaissancedesafi/','_blank')"><span class="soc-icon">📸</span>Instagram · @clubrenaissancedesafi</div>
         <div class="soc-btn" onclick="window.open('https://www.facebook.com/clubrenaissancedesafi','_blank')"><span class="soc-icon">👥</span>Facebook · Club Renaissance</div>
         <div class="soc-btn" onclick="openWA()"><span class="soc-icon">💬</span>WhatsApp · تواصل مباشر</div>
-        <div class="soc-btn" onclick="window.open('tel:0667-069474
-')"><span class="soc-icon">📞</span>هاتف · اتصل بنا</div>
+        <div class="soc-btn" onclick="window.open('tel:0667069474')"><span class="soc-icon">📞</span>هاتف · اتصل بنا</div>
       </div>
     </div>
   </section>
@@ -652,18 +650,15 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:64px 4
 </div>
 
 <!-- WHATSAPP BUTTON -->
-<a class="wa-btn" href="https://wa.me/212 0667-069474
-" target="_blank" title="تواصل معنا عبر واتساب">💬</a>
+<a class="wa-btn" href="https://wa.me/212667069474" target="_blank" title="تواصل معنا عبر واتساب">💬</a>
 
 <script>
 /* ============================================================
    🔧 EASY EDIT ZONE — تعديل بدون كود
    Replace these values with real ones:
 ============================================================ */
-const PHONE = '0667-069474
-';          // ← ضع رقم الهاتف الحقيقي هنا
-const WHATSAPP = '212 667-069474
-';     // ← ضع رقم الواتساب بدون + هنا
+const PHONE = '0667069474';          // ← ضع رقم الهاتف الحقيقي هنا
+const WHATSAPP = '212667069474';     // ← ضع رقم الواتساب بدون + هنا
 const MAPS_URL = 'https://maps.google.com/?q=Club+Renaissance+Safi+Maroc'; // ← رابط الموقع الحقيقي
 /* ============================================================ */
 
@@ -685,13 +680,21 @@ function subHTML(s){
     <button class="sub-btn">اشترك الآن — ${s.dur}</button>
   </div>`;
 }
-document.getElementById('home-subs').innerHTML = subs.slice(0,3).map(subHTML).join('');
-document.getElementById('full-subs').innerHTML = subs.map(subHTML).join('');
+
+// Check if elements exist before injecting HTML
+if(document.getElementById('home-subs')) {
+  document.getElementById('home-subs').innerHTML = subs.slice(0,3).map(subHTML).join('');
+}
+if(document.getElementById('full-subs')) {
+  document.getElementById('full-subs').innerHTML = subs.map(subHTML).join('');
+}
 
 // ── ROUTING ──
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('page-'+id).classList.add('active');
+  const targetPage = document.getElementById('page-'+id);
+  if(targetPage) targetPage.classList.add('active');
+  
   document.querySelectorAll('.nav-center a').forEach(a=>a.classList.remove('act'));
   const el=document.getElementById('nl-'+id);
   if(el) el.classList.add('act');
@@ -725,13 +728,16 @@ function openMaps(){window.open(MAPS_URL,'_blank');toast('جاري فتح خرا
 // ── TOAST ──
 function toast(msg){
   const t=document.getElementById('toast');
-  t.textContent=msg;t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3000);
+  if(t) {
+    t.textContent=msg;t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),3000);
+  }
 }
 
 // ── PARTICLES ──
 function createParticles(){
   const c=document.getElementById('particles');
+  if(!c) return;
   for(let i=0;i<20;i++){
     const p=document.createElement('div');
     p.className='particle';
@@ -744,8 +750,10 @@ createParticles();
 // ── LOADER ──
 setTimeout(()=>{
   const l=document.getElementById('loader');
-  l.classList.add('hide');
-  setTimeout(()=>l.style.display='none',600);
+  if(l) {
+    l.classList.add('hide');
+    setTimeout(()=>l.style.display='none',600);
+  }
 },1000);
 
 // ── SCROLL REVEAL ──
