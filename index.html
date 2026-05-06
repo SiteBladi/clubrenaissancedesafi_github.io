@@ -437,19 +437,35 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:64px 4
 </div>
 
 <!-- ══════════════════ HOME PAGE ══════════════════ -->
-<div class="page active" id="page-home">
-  <section class="hero">
-    <div class="hero-content">
-      <!-- We removed the 'R' div from here -->
-      <div class="hero-tag">مرحباً بك في نادي رينيسانس 🚩</div>
-      <h1 class="hero-title">أطلق <span class="acc">الوحش</span> الذي بداخلك</h1>
-      <p class="hero-desc">أفضل المعدات، أمهر المدربين، وبيئة تحفزك للوصول إلى أهدافك البدنية في قلب مدينة آسفي.</p>
-      <div class="hero-btns">
-        <button class="btn-p" onclick="nav('subs')">اشترك الآن</button>
-        <button class="btn-s" onclick="nav('about')">اكتشف المزيد</button>
-      </div>
+<section class="hero">
+  <!-- Aesthetic Glow behind text -->
+  <div style="position:absolute; width:300px; height:300px; background:#cc0000; filter:blur(150px); opacity:0.2; top:50%; left:50%; transform:translate(-50%, -50%); pointer-events:none;"></div>
+
+  <div class="hero-content" style="z-index: 10; text-align: center; padding: 0 20px;">
+    <div class="hero-tag">مرحباً بك في نادي رينيسانس 🚩</div>
+    
+    <h1 class="hero-title">
+      أطلق <span style="color: #cc0000; text-shadow: 0 0 30px rgba(204,0,0,0.5);">الوحش</span><br>
+      الذي بداخلك
+    </h1>
+    
+    <p class="hero-desc" style="max-width: 600px; margin: 0 auto; color: rgba(255,255,255,0.7); font-size: 1.1rem; line-height: 1.6;">
+      أفضل المعدات، أمهر المدربين، وبيئة تحفزك للوصول إلى أهدافك البدنية في قلب مدينة آسفي.
+    </p>
+
+    <div class="hero-btns">
+      <button class="btn-p" onclick="nav('subs')">ابدأ رحلتك الآن</button>
+      <button class="btn-s" onclick="nav('about')">اكتشف المرافق</button>
     </div>
-  </section>
+    
+    <!-- Floating Stats (Added Detail) -->
+    <div style="margin-top: 60px; display: flex; gap: 40px; justify-content: center; opacity: 0.6; font-size: 0.9rem;">
+      <div><b style="color: white; display: block; font-size: 1.2rem;">+50</b> آلة حديثة</div>
+      <div><b style="color: white; display: block; font-size: 1.2rem;">24/6</b> متاح دائماً</div>
+      <div><b style="color: white; display: block; font-size: 1.2rem;">مدربين</b> محترفين</div>
+    </div>
+  </div>
+</section>
   
   <!-- The rest of your home page continues here... -->
 
