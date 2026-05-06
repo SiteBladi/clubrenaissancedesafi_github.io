@@ -21,28 +21,103 @@
    - Colors: --red:#CC0000  --gold:#D4AF37  --black:#080808
 ============================================================ */
 
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --black:#080808;
-  --dark:#101010;
-  --dark2:#181818;
-  --dark3:#222222;
-  --red:#CC0000;
-  --red2:#FF2020;
-  --red3:#8B0000;
-  --gold:#D4AF37;
-  --gold2:#F0C040;
-  --white:#FFFFFF;
-  --gray:#999999;
-  --light:#CCCCCC;
+/* ── POWERFUL HERO BACKGROUND ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
 }
-html{scroll-behavior:smooth;}
-body{font-family:'Tajawal',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden;}
-::-webkit-scrollbar{width:5px;}
-::-webkit-scrollbar-track{background:var(--dark);}
-::-webkit-scrollbar-thumb{background:linear-gradient(var(--red),var(--gold));border-radius:3px;}
-.page{display:none;}
-.page.active{display:block;}
+
+/* Moving Grid Overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(204, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(204, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(ellipse at center, black, transparent 80%);
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  from { background-position: 0 0; }
+  to { background-position: 0 50px; }
+}
+
+/* ── ANIMATED TEXT ── */
+.hero-title {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 20px 0;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: revealText 0.8s cubic-bezier(0.2, 1, 0.3, 1) forwards 0.3s;
+}
+
+.hero-tag {
+  background: rgba(204, 0, 0, 0.1);
+  color: #ff3333;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(204, 0, 0, 0.3);
+  display: inline-block;
+  opacity: 0;
+  animation: revealText 0.8s ease forwards;
+}
+
+@keyframes revealText {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── MODERN BUTTONS ── */
+.hero-btns {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.btn-p {
+  background: #cc0000;
+  color: white;
+  padding: 16px 35px;
+  border-radius: 12px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 10px 20px rgba(204, 0, 0, 0.3);
+}
+
+.btn-p:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(204, 0, 0, 0.5);
+  background: #ff0000;
+}
+
+.btn-s {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  padding: 16px 35px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.btn-s:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
 
 /* ── LOADER ── */
 #loader{position:fixed;inset:0;background:var(--black);z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity 0.6s;}
