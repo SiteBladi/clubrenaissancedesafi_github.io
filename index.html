@@ -439,30 +439,46 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:64px 4
 <!-- ══════════════════ HOME PAGE ══════════════════ -->
 <section class="hero">
   <!-- Aesthetic Glow behind text -->
-  <div style="position:absolute; width:300px; height:300px; background:#cc0000; filter:blur(150px); opacity:0.2; top:50%; left:50%; transform:translate(-50%, -50%); pointer-events:none;"></div>
+<!-- ══════════════════ FIXED HERO SECTION ══════════════════ -->
+<section class="hero" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: #000; position: relative; overflow: hidden; text-align: center;">
+  
+  <!-- Ambient Glow -->
+  <div style="position:absolute; width:400px; height:400px; background:#cc0000; filter:blur(180px); opacity:0.15; top:50%; left:50%; transform:translate(-50%, -50%); pointer-events:none;"></div>
 
-  <div class="hero-content" style="z-index: 10; text-align: center; padding: 0 20px;">
-    <div class="hero-tag">مرحباً بك في نادي رينيسانس 🚩</div>
+  <div class="hero-content" style="z-index: 10; padding: 0 20px; width: 100%;">
+    <!-- Animated Tag -->
+    <div style="display: inline-block; background: rgba(204, 0, 0, 0.15); color: #ff4444; padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; border: 1px solid rgba(204, 0, 0, 0.3); margin-bottom: 25px;">
+      مرحباً بك في نادي رينيسانس 🚩
+    </div>
     
-    <h1 class="hero-title">
-      أطلق <span style="color: #cc0000; text-shadow: 0 0 30px rgba(204,0,0,0.5);">الوحش</span><br>
+    <!-- Title: Force White Color -->
+    <h1 style="color: #ffffff; font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; text-transform: uppercase;">
+      أطلق <span style="color: #cc0000; text-shadow: 0 0 25px rgba(204,0,0,0.6);">الوحش</span><br>
       الذي بداخلك
     </h1>
     
-    <p class="hero-desc" style="max-width: 600px; margin: 0 auto; color: rgba(255,255,255,0.7); font-size: 1.1rem; line-height: 1.6;">
+    <!-- Description -->
+    <p style="color: rgba(255,255,255,0.8); max-width: 650px; margin: 0 auto 35px; font-size: 1.1rem; line-height: 1.7;">
       أفضل المعدات، أمهر المدربين، وبيئة تحفزك للوصول إلى أهدافك البدنية في قلب مدينة آسفي.
     </p>
 
-    <div class="hero-btns">
-      <button class="btn-p" onclick="nav('subs')">ابدأ رحلتك الآن</button>
-      <button class="btn-s" onclick="nav('about')">اكتشف المرافق</button>
+    <!-- Buttons: Linked to nav() -->
+    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+      <button onclick="nav('subs')" style="background: #cc0000; color: #fff; padding: 18px 40px; border-radius: 12px; font-weight: 700; border: none; cursor: pointer; font-size: 1.1rem; transition: 0.3s; box-shadow: 0 10px 20px rgba(204, 0, 0, 0.3);">
+        اشترك الآن
+      </button>
+      <button onclick="nav('about')" style="background: rgba(255, 255, 255, 0.05); color: #fff; padding: 18px 40px; border-radius: 12px; font-weight: 700; border: 1px solid rgba(255, 255, 255, 0.2); cursor: pointer; font-size: 1.1rem; backdrop-filter: blur(10px); transition: 0.3s;">
+        اكتشف المزيد
+      </button>
     </div>
-    
-    <!-- Floating Stats (Added Detail) -->
-    <div style="margin-top: 60px; display: flex; gap: 40px; justify-content: center; opacity: 0.6; font-size: 0.9rem;">
-      <div><b style="color: white; display: block; font-size: 1.2rem;">+50</b> آلة حديثة</div>
-      <div><b style="color: white; display: block; font-size: 1.2rem;">24/6</b> متاح دائماً</div>
-      <div><b style="color: white; display: block; font-size: 1.2rem;">مدربين</b> محترفين</div>
+
+    <!-- Quick Stats -->
+    <div style="margin-top: 50px; display: flex; gap: 30px; justify-content: center; opacity: 0.7; font-size: 0.85rem; color: #fff;">
+      <div><span style="display:block; font-size: 1.3rem; font-weight:900;">+50</span> آلة حديثة</div>
+      <div style="width: 1px; background: rgba(255,255,255,0.1); height: 40px;"></div>
+      <div><span style="display:block; font-size: 1.3rem; font-weight:900;">24/6</span> متاح دائماً</div>
+      <div style="width: 1px; background: rgba(255,255,255,0.1); height: 40px;"></div>
+      <div><span style="display:block; font-size: 1.3rem; font-weight:900;">100%</span> نتائج مضمونة</div>
     </div>
   </div>
 </section>
