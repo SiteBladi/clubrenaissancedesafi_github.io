@@ -11,10 +11,10 @@
    CLUB RENAISSANCE DE SAFI — WEBSITE
    Built by SiteBladi 🇲🇦 © 2026
    🔧 EDIT:
-   - Phone/WhatsApp: search "212667069474"
+   - WhatsApp: search "212667069474"
    - Maps: search "maps.google.com"
-   - Hours: search "9ص — 9م"
    - Colors: --red:#CC0000  --gold:#D4AF37
+   🛒 ADD PRODUCT: search "PRODUCTS_DATA"
 ============================================================ */
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
@@ -49,12 +49,12 @@ nav{position:sticky;top:0;z-index:200;height:68px;background:rgba(8,8,8,0.97);ba
 .logo-text strong{font-size:14px;font-weight:800;color:var(--white);display:block;}
 .logo-text span{font-size:11px;color:var(--gray);}
 .nav-links{display:flex;list-style:none;}
-.nav-links a{color:var(--gray);font-size:14px;padding:0 16px;height:68px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:all 0.25s;cursor:pointer;white-space:nowrap;}
+.nav-links a{color:var(--gray);font-size:13px;padding:0 14px;height:68px;display:flex;align-items:center;border-bottom:2px solid transparent;transition:all 0.25s;cursor:pointer;white-space:nowrap;}
 .nav-links a:hover,.nav-links a.act{color:var(--white);border-bottom-color:var(--red);}
-.nav-right{display:flex;align-items:center;gap:12px;}
-.btn-red{background:linear-gradient(135deg,var(--red),var(--red3));color:var(--white);padding:10px 22px;border:none;border-radius:4px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.3s;}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.btn-red{background:linear-gradient(135deg,var(--red),var(--red3));color:var(--white);padding:10px 20px;border:none;border-radius:4px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.3s;}
 .btn-red:hover{background:var(--red2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(204,0,0,0.4);}
-.btn-outline{background:transparent;color:var(--white);padding:10px 22px;border:1px solid rgba(255,255,255,0.25);border-radius:4px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.3s;}
+.btn-outline{background:transparent;color:var(--white);padding:10px 20px;border:1px solid rgba(255,255,255,0.25);border-radius:4px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.3s;}
 .btn-outline:hover{border-color:var(--red);color:var(--red);}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:none;}
 .hamburger span{width:24px;height:2px;background:var(--white);border-radius:2px;transition:all 0.3s;display:block;}
@@ -115,7 +115,7 @@ nav{position:sticky;top:0;z-index:200;height:68px;background:rgba(8,8,8,0.97);ba
 .sl2{width:12px;background:var(--gold);}
 .sl3{width:6px;background:rgba(204,0,0,0.3);}
 
-/* CARDS GRID */
+/* EQ CARDS */
 .eq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;max-width:1100px;margin:0 auto;}
 .eq-card{background:var(--dark2);border:1px solid rgba(255,255,255,0.05);border-radius:10px;padding:28px 20px;text-align:center;transition:all 0.35s;position:relative;overflow:hidden;cursor:default;}
 .eq-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(204,0,0,0.08),transparent);opacity:0;transition:opacity 0.35s;}
@@ -217,8 +217,34 @@ nav{position:sticky;top:0;z-index:200;height:68px;background:rgba(8,8,8,0.97);ba
 .soc-btn{display:flex;align-items:center;gap:10px;background:var(--dark2);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:14px 16px;color:var(--white);font-size:13px;font-weight:700;transition:all 0.3s;cursor:pointer;text-decoration:none;}
 .soc-btn:hover{border-color:rgba(204,0,0,0.4);transform:translateY(-3px);}
 
+/* ══ STORE ══ */
+.filter-wrap{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;}
+.filter-btn{background:var(--dark2);color:var(--gray);border:1px solid rgba(255,255,255,0.08);padding:10px 22px;border-radius:40px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.3s;}
+.filter-btn:hover,.filter-btn.active{background:var(--red);color:var(--white);border-color:var(--red);}
+.store-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;max-width:1100px;margin:0 auto;}
+.prod-card{background:var(--dark2);border:1px solid rgba(255,255,255,0.06);border-radius:14px;overflow:hidden;transition:all 0.35s;position:relative;}
+.prod-card:hover{transform:translateY(-8px);border-color:rgba(204,0,0,0.35);box-shadow:0 16px 48px rgba(204,0,0,0.1);}
+.prod-card.hidden{display:none;}
+.prod-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:72px;position:relative;}
+.prod-badge{position:absolute;top:12px;right:12px;background:var(--red);color:var(--white);font-size:10px;font-weight:700;padding:4px 12px;border-radius:20px;font-family:'Tajawal',sans-serif;}
+.prod-body{padding:18px;}
+.prod-cat{font-size:10px;letter-spacing:3px;color:var(--red);text-transform:uppercase;margin-bottom:6px;}
+.prod-name{font-size:16px;font-weight:700;color:var(--white);margin-bottom:6px;}
+.prod-desc{font-size:12px;color:var(--gray);line-height:1.6;margin-bottom:10px;}
+.prod-weight{font-size:11px;color:rgba(255,255,255,0.3);margin-bottom:14px;}
+.prod-footer{display:flex;align-items:center;justify-content:space-between;}
+.prod-price{font-size:22px;font-weight:900;color:var(--gold);}
+.prod-price span{font-size:12px;color:var(--gray);font-weight:400;}
+.add-btn{background:rgba(204,0,0,0.15);border:1px solid rgba(204,0,0,0.3);color:var(--red);padding:8px 16px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.3s;}
+.add-btn:hover,.add-btn.added{background:var(--red);color:var(--white);border-color:var(--red);}
+.cart-bar{position:fixed;bottom:0;inset-inline:0;background:linear-gradient(135deg,rgba(26,0,0,0.98),rgba(24,24,24,0.98));border-top:1px solid rgba(204,0,0,0.3);padding:16px 40px;display:none;align-items:center;justify-content:space-between;z-index:150;backdrop-filter:blur(12px);}
+.cart-bar.show{display:flex;}
+.cart-bar-info{font-size:15px;font-weight:600;color:var(--white);}
+.cart-checkout-btn{background:linear-gradient(135deg,var(--red),var(--red3));color:var(--white);padding:12px 28px;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'Tajawal',sans-serif;transition:all 0.3s;}
+.cart-checkout-btn:hover{background:var(--red2);}
+
 /* TOAST */
-.toast{position:fixed;bottom:36px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--dark3);border:1px solid rgba(204,0,0,0.4);border-radius:10px;padding:14px 28px;font-size:14px;font-weight:600;color:var(--white);font-family:'Tajawal',sans-serif;opacity:0;transition:all 0.3s;z-index:9998;pointer-events:none;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,0.5);}
+.toast{position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(16px);background:var(--dark3);border:1px solid rgba(204,0,0,0.4);border-radius:10px;padding:14px 28px;font-size:14px;font-weight:600;color:var(--white);font-family:'Tajawal',sans-serif;opacity:0;transition:all 0.3s;z-index:9998;pointer-events:none;white-space:nowrap;box-shadow:0 8px 32px rgba(0,0,0,0.5);}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
 /* WHATSAPP */
@@ -245,8 +271,6 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
 .f-copy{font-size:12px;color:rgba(255,255,255,0.25);}
 .f-made{font-size:12px;color:rgba(255,255,255,0.2);}
 .f-made a{color:var(--red);text-decoration:none;font-weight:600;}
-
-/* MINI FOOTER */
 .mini-footer{background:#040404;border-top:1px solid rgba(204,0,0,0.1);padding:20px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 
 /* MOBILE */
@@ -258,7 +282,7 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
   .h-stat{padding:0 20px;}
   .section{padding:64px 24px;}
   nav{padding:0 24px;}
-  .mini-footer{padding:20px 24px;}
+  .cart-bar{padding:14px 24px;}
 }
 @media(max-width:480px){
   .goals-grid,.soc-row{grid-template-columns:1fr;}
@@ -275,7 +299,6 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
   <div class="l-bar"><div class="l-fill"></div></div>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <!-- NAV -->
@@ -292,6 +315,7 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
     <li><a id="nl-about" onclick="nav('about')">من نحن</a></li>
     <li><a id="nl-subscriptions" onclick="nav('subscriptions')">الاشتراكات</a></li>
     <li><a id="nl-coaching" onclick="nav('coaching')">التدريب</a></li>
+    <li><a id="nl-store" onclick="nav('store')">🛒 المتجر</a></li>
     <li><a id="nl-contact" onclick="nav('contact')">تواصل</a></li>
   </ul>
   <div class="nav-right">
@@ -308,6 +332,7 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
   <a onclick="nav('about');closeMenu()">ℹ️ من نحن</a>
   <a onclick="nav('subscriptions');closeMenu()">💳 الاشتراكات</a>
   <a onclick="nav('coaching');closeMenu()">🏋️ التدريب</a>
+  <a onclick="nav('store');closeMenu()">🛒 المتجر</a>
   <a onclick="nav('contact');closeMenu()">📞 تواصل</a>
   <a href="https://www.instagram.com/clubrenaissancedesafi/" target="_blank">📸 إنستغرام</a>
   <a href="https://www.facebook.com/clubrenaissancedesafi" target="_blank">👥 فيسبوك</a>
@@ -324,14 +349,13 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
     <div class="hero-content">
       <div class="hero-badge">🏆 منذ أكثر من 30 سنة · آسفي المغرب</div>
       <h1 class="hero-h1">
-        <span class="w">أطلق </span><span class="r">الوحش</span>
-        <span class="w"> الذي بداخلك</span>
+        <span class="w">أطلق </span><span class="r">الوحش</span><span class="w"> الذي بداخلك</span>
         <span class="o">CLUB RENAISSANCE · SAFI</span>
       </h1>
       <p class="hero-sub">أقدم وأعرق نادي لكمال الأجسام في آسفي — خبرة تمتد لأكثر من 30 سنة في بناء الأبطال.</p>
       <div class="hero-btns">
         <button class="btn-red" onclick="nav('subscriptions')">اشترك الآن</button>
-        <button class="btn-outline" onclick="nav('about')">اكتشف النادي</button>
+        <button class="btn-outline" onclick="nav('store')">🛒 تسوق المكملات</button>
       </div>
       <div class="hero-stats">
         <div class="h-stat"><div class="h-num">+30</div><div class="h-lbl">سنة خبرة</div></div>
@@ -349,7 +373,7 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
       <span class="m-item">CLUB RENAISSANCE</span><span class="m-dot">◆</span>
       <span class="m-item">آسفي المغرب</span><span class="m-dot">◆</span>
       <span class="m-item">30+ YEARS</span><span class="m-dot">◆</span>
-      <span class="m-item">قوة وعزيمة</span><span class="m-dot">◆</span>
+      <span class="m-item">SUPPLEMENTS</span><span class="m-dot">◆</span>
       <span class="m-item">STRENGTH</span><span class="m-dot">◆</span>
       <span class="m-item">تدريب احترافي</span><span class="m-dot">◆</span>
       <span class="m-item">BODYBUILDING</span><span class="m-dot">◆</span>
@@ -357,7 +381,7 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
       <span class="m-item">CLUB RENAISSANCE</span><span class="m-dot">◆</span>
       <span class="m-item">آسفي المغرب</span><span class="m-dot">◆</span>
       <span class="m-item">30+ YEARS</span><span class="m-dot">◆</span>
-      <span class="m-item">قوة وعزيمة</span><span class="m-dot">◆</span>
+      <span class="m-item">SUPPLEMENTS</span><span class="m-dot">◆</span>
       <span class="m-item">STRENGTH</span><span class="m-dot">◆</span>
       <span class="m-item">تدريب احترافي</span><span class="m-dot">◆</span>
     </div>
@@ -370,11 +394,11 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
       <div class="s-line"><span class="sl1"></span><span class="sl2"></span><span class="sl3"></span></div>
     </div>
     <div class="eq-grid">
-      <div class="eq-card"><span class="eq-icon">🏋️</span><div class="eq-name">معدات احترافية</div><div class="eq-desc">أوزان حرة وأجهزة متخصصة لكل عضلة في جسمك</div><span class="eq-tag">PROFESSIONAL</span></div>
-      <div class="eq-card"><span class="eq-icon">👨‍🏫</span><div class="eq-name">مدربون خبراء</div><div class="eq-desc">خبرة عشرات السنين في تدريب كمال الأجسام</div><span class="eq-tag">EXPERT</span></div>
-      <div class="eq-card"><span class="eq-icon">🚿</span><div class="eq-name">حمامات ودش</div><div class="eq-desc">حمامات نظيفة مع دش سخن بعد كل تمرين</div><span class="eq-tag">COMFORT</span></div>
-      <div class="eq-card"><span class="eq-icon">📅</span><div class="eq-name">+30 سنة تجربة</div><div class="eq-desc">من أقدم الأندية الرياضية في آسفي</div><span class="eq-tag">LEGACY</span></div>
-      <div class="eq-card"><span class="eq-icon">💪</span><div class="eq-name">تخصص 100%</div><div class="eq-desc">مخصص للرجال وكمال الأجسام فقط</div><span class="eq-tag">FOCUSED</span></div>
+      <div class="eq-card"><span class="eq-icon">🏋️</span><div class="eq-name">معدات احترافية</div><div class="eq-desc">أوزان حرة وأجهزة متخصصة لكل عضلة</div><span class="eq-tag">PROFESSIONAL</span></div>
+      <div class="eq-card"><span class="eq-icon">👨‍🏫</span><div class="eq-name">مدربون خبراء</div><div class="eq-desc">خبرة عشرات السنين في كمال الأجسام</div><span class="eq-tag">EXPERT</span></div>
+      <div class="eq-card"><span class="eq-icon">🚿</span><div class="eq-name">حمامات ودش</div><div class="eq-desc">نظيفة مع دش سخن بعد كل تمرين</div><span class="eq-tag">COMFORT</span></div>
+      <div class="eq-card"><span class="eq-icon">🛒</span><div class="eq-name">متجر مكملات</div><div class="eq-desc">كرياتين، بروتين، وكل ما تحتاجه</div><span class="eq-tag">SHOP</span></div>
+      <div class="eq-card"><span class="eq-icon">💪</span><div class="eq-name">تخصص 100%</div><div class="eq-desc">كمال أجسام للرجال فقط — تركيز كامل</div><span class="eq-tag">FOCUSED</span></div>
     </div>
   </section>
 
@@ -382,12 +406,26 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
     <div class="s-hdr">
       <span class="s-eye">الاشتراكات</span>
       <div class="s-title">أسعار <span class="gold">تناسب الجميع</span></div>
-      <p class="s-desc">ابدأ من 200 درهم فقط — لا أعذار بعد اليوم</p>
+      <p class="s-desc">ابدأ من 200 درهم فقط</p>
       <div class="s-line"><span class="sl1"></span><span class="sl2"></span><span class="sl3"></span></div>
     </div>
     <div class="subs-grid" id="home-subs"></div>
     <div style="text-align:center;margin-top:32px;">
       <button class="btn-outline" onclick="nav('subscriptions')">عرض جميع الباقات ←</button>
+    </div>
+  </section>
+
+  <!-- STORE PREVIEW -->
+  <section class="section" style="background:var(--dark);border-top:1px solid rgba(255,255,255,0.03);">
+    <div class="s-hdr">
+      <span class="s-eye">المتجر</span>
+      <div class="s-title">مكملات <span class="acc">غذائية</span> احترافية</div>
+      <p class="s-desc">منتجات مختارة بعناية لمساعدتك على تحقيق أهدافك</p>
+      <div class="s-line"><span class="sl1"></span><span class="sl2"></span><span class="sl3"></span></div>
+    </div>
+    <div class="store-grid" id="home-store"></div>
+    <div style="text-align:center;margin-top:32px;">
+      <button class="btn-red" style="padding:14px 36px;font-size:15px;" onclick="nav('store')">عرض جميع المنتجات 🛒</button>
     </div>
   </section>
 
@@ -406,9 +444,26 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
             <a class="f-soc" href="https://wa.me/212667069474" target="_blank">💬</a>
           </div>
         </div>
-        <div class="f-col"><h5>الصفحات</h5><ul class="f-links"><li><a onclick="nav('home')">الرئيسية</a></li><li><a onclick="nav('about')">من نحن</a></li><li><a onclick="nav('subscriptions')">الاشتراكات</a></li><li><a onclick="nav('coaching')">التدريب</a></li><li><a onclick="nav('contact')">تواصل</a></li></ul></div>
-        <div class="f-col"><h5>الباقات</h5><ul class="f-links"><li><a onclick="subscribeNow('monthly','شهر واحد',200)">شهر — 200 درهم</a></li><li><a onclick="subscribeNow('quarterly','3+1 أشهر',600)">3+1 — 600 درهم</a></li><li><a onclick="subscribeNow('biannual','6 أشهر',800)">6 أشهر — 800 درهم</a></li><li><a onclick="subscribeNow('annual','سنة كاملة',1000)">سنة — 1000 درهم</a></li></ul></div>
-        <div class="f-col"><h5>تواصل</h5><ul class="f-links"><li><a href="https://www.instagram.com/clubrenaissancedesafi/" target="_blank">📸 إنستغرام</a></li><li><a href="https://www.facebook.com/clubrenaissancedesafi" target="_blank">👥 فيسبوك</a></li><li><a href="https://wa.me/212667069474" target="_blank">💬 واتساب</a></li><li><a onclick="nav('contact')">📍 آسفي، المغرب</a></li></ul></div>
+        <div class="f-col"><h5>الصفحات</h5><ul class="f-links">
+          <li><a onclick="nav('home')">الرئيسية</a></li>
+          <li><a onclick="nav('about')">من نحن</a></li>
+          <li><a onclick="nav('subscriptions')">الاشتراكات</a></li>
+          <li><a onclick="nav('coaching')">التدريب</a></li>
+          <li><a onclick="nav('store')">المتجر</a></li>
+          <li><a onclick="nav('contact')">تواصل</a></li>
+        </ul></div>
+        <div class="f-col"><h5>الباقات</h5><ul class="f-links">
+          <li><a onclick="subscribeNow('monthly','شهر واحد',200)">شهر — 200 درهم</a></li>
+          <li><a onclick="subscribeNow('quarterly','3+1 أشهر',600)">3+1 — 600 درهم</a></li>
+          <li><a onclick="subscribeNow('biannual','6 أشهر',800)">6 أشهر — 800 درهم</a></li>
+          <li><a onclick="subscribeNow('annual','سنة كاملة',1000)">سنة — 1000 درهم</a></li>
+        </ul></div>
+        <div class="f-col"><h5>تواصل</h5><ul class="f-links">
+          <li><a href="https://www.instagram.com/clubrenaissancedesafi/" target="_blank">📸 إنستغرام</a></li>
+          <li><a href="https://www.facebook.com/clubrenaissancedesafi" target="_blank">👥 فيسبوك</a></li>
+          <li><a href="https://wa.me/212667069474" target="_blank">💬 واتساب</a></li>
+          <li><a onclick="nav('contact')">📍 آسفي، المغرب</a></li>
+        </ul></div>
       </div>
       <div class="f-bottom">
         <div class="f-copy">© 2026 Club Renaissance de Safi — جميع الحقوق محفوظة</div>
@@ -433,11 +488,11 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
       </div>
       <div class="about-text">
         <h2>النادي الذي علّم آسفي معنى <span class="acc">الإرادة</span></h2>
-        <p>Club Renaissance de Safi من أقدم وأعرق أندية كمال الأجسام في آسفي. منذ عشرات السنين نساعد الرجال على بناء أجسامهم وتطوير أنفسهم. نادينا ليس مجرد قاعة تمرين — هو مدرسة للإرادة والانضباط.</p>
+        <p>Club Renaissance de Safi من أقدم وأعرق أندية كمال الأجسام في آسفي. منذ عشرات السنين نساعد الرجال على بناء أجسامهم وتطوير أنفسهم.</p>
         <div class="feats">
-          <div class="feat"><div class="feat-icon">🏋️</div><div class="feat-body"><h4>معدات احترافية متكاملة</h4><p>أوزان حرة من جميع الأحجام، أجهزة ضغط، كابلات متخصصة</p></div></div>
+          <div class="feat"><div class="feat-icon">🏋️</div><div class="feat-body"><h4>معدات احترافية متكاملة</h4><p>أوزان حرة، أجهزة ضغط، كابلات لكل عضلة</p></div></div>
           <div class="feat"><div class="feat-icon">🚿</div><div class="feat-body"><h4>حمامات ودش مريحة</h4><p>دش سخن وحمامات نظيفة بعد كل تمرين</p></div></div>
-          <div class="feat"><div class="feat-icon">💪</div><div class="feat-body"><h4>تخصص كامل للرجال</h4><p>100% كمال أجسام — بدون ضجيج أو تشتت</p></div></div>
+          <div class="feat"><div class="feat-icon">🛒</div><div class="feat-body"><h4>متجر مكملات غذائية</h4><p>كرياتين، واي بروتين، BCAA وكل ما تحتاجه</p></div></div>
           <div class="feat"><div class="feat-icon">📅</div><div class="feat-body"><h4>خبرة أكثر من 30 سنة</h4><p>من المبتدئ للمحترف — نعرف احتياجاتك</p></div></div>
         </div>
       </div>
@@ -455,7 +510,7 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
       <div class="fac-card"><span class="fac-icon">📏</span><div class="fac-name">كابلات وبولي</div><div class="fac-desc">تمارين بزوايا مختلفة</div></div>
       <div class="fac-card"><span class="fac-icon">🪞</span><div class="fac-name">مرايا الجدران</div><div class="fac-desc">مراقبة الشكل والتقنية</div></div>
       <div class="fac-card"><span class="fac-icon">🚿</span><div class="fac-name">حمامات ودش</div><div class="fac-desc">دش سخن ونظيف دائماً</div></div>
-      <div class="fac-card"><span class="fac-icon">🅿️</span><div class="fac-name">موقع مركزي</div><div class="fac-desc">في قلب آسفي سهل الوصول</div></div>
+      <div class="fac-card"><span class="fac-icon">🛒</span><div class="fac-name">متجر مكملات</div><div class="fac-desc">كل المكملات في مكان واحد</div></div>
     </div>
   </section>
   <div class="mini-footer">
@@ -470,7 +525,7 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
     <div class="s-hdr">
       <span class="s-eye">الأسعار والباقات</span>
       <div class="s-title">اختر <span class="acc">باقتك</span></div>
-      <p class="s-desc">أسعار شفافة — كل الباقات تشمل الوصول الكامل للقاعة</p>
+      <p class="s-desc">أسعار شفافة — الوصول الكامل للقاعة في كل الباقات</p>
       <div class="s-line"><span class="sl1"></span><span class="sl2"></span><span class="sl3"></span></div>
     </div>
     <div class="subs-grid" id="full-subs"></div>
@@ -518,14 +573,42 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
     <div style="margin-top:60px;">
       <h3 style="font-size:22px;font-weight:700;color:var(--white);margin-bottom:24px;text-align:center;">ما هو <span style="color:var(--red);">هدفك؟</span></h3>
       <div class="goals-grid">
-        <div class="goal-card" onclick="openWA('muscle')"><span class="goal-icon">💪</span><div class="goal-name">بناء الكتلة</div><div class="goal-desc">برنامج ضخامة متكامل مع نظام غذائي</div></div>
+        <div class="goal-card" onclick="openWA('muscle')"><span class="goal-icon">💪</span><div class="goal-name">بناء الكتلة</div><div class="goal-desc">برنامج ضخامة مع نظام غذائي</div></div>
         <div class="goal-card" onclick="openWA('fat')"><span class="goal-icon">🔥</span><div class="goal-name">حرق الدهون</div><div class="goal-desc">تنشيف مع محافظة على العضلات</div></div>
-        <div class="goal-card" onclick="openWA('strength')"><span class="goal-icon">🏆</span><div class="goal-name">زيادة القوة</div><div class="goal-desc">برنامج قوة تدريجي ومتصاعد</div></div>
-        <div class="goal-card" onclick="openWA('beginner')"><span class="goal-icon">🌱</span><div class="goal-name">المبتدئ</div><div class="goal-desc">ابدأ من الصفر بأمان وصح</div></div>
+        <div class="goal-card" onclick="openWA('strength')"><span class="goal-icon">🏆</span><div class="goal-name">زيادة القوة</div><div class="goal-desc">برنامج قوة تدريجي</div></div>
+        <div class="goal-card" onclick="openWA('beginner')"><span class="goal-icon">🌱</span><div class="goal-name">المبتدئ</div><div class="goal-desc">ابدأ من الصفر بأمان</div></div>
       </div>
     </div>
   </section>
   <div class="mini-footer">
+    <div class="f-copy">© 2026 Club Renaissance de Safi</div>
+    <div class="f-made">Built by <a href="https://sitebladi.github.io" target="_blank">SiteBladi 🇲🇦</a></div>
+  </div>
+</div>
+
+<!-- ══ STORE ══ -->
+<div class="page" id="page-store">
+  <section class="section">
+    <div class="s-hdr">
+      <span class="s-eye">المتجر</span>
+      <div class="s-title">مكملات <span class="acc">غذائية</span> احترافية</div>
+      <p class="s-desc">منتجات مختارة بعناية — اطلب وسنوصل لك</p>
+      <div class="s-line"><span class="sl1"></span><span class="sl2"></span><span class="sl3"></span></div>
+    </div>
+    <div class="filter-wrap">
+      <button class="filter-btn active" onclick="filterCat('all',this)">الكل</button>
+      <button class="filter-btn" onclick="filterCat('protein',this)">💪 بروتين</button>
+      <button class="filter-btn" onclick="filterCat('creatine',this)">⚡ كرياتين</button>
+      <button class="filter-btn" onclick="filterCat('vitamins',this)">💊 فيتامينات</button>
+      <button class="filter-btn" onclick="filterCat('clothing',this)">👕 ملابس</button>
+    </div>
+    <div class="store-grid" id="store-grid"></div>
+    <div class="cart-bar" id="cart-bar">
+      <div class="cart-bar-info">🛒 <span id="cart-count">0</span> منتج — المجموع: <span id="cart-total">0</span> درهم</div>
+      <button class="cart-checkout-btn" onclick="checkout()">اطلب عبر واتساب 💬</button>
+    </div>
+  </section>
+  <div class="mini-footer" style="margin-bottom:70px;">
     <div class="f-copy">© 2026 Club Renaissance de Safi</div>
     <div class="f-made">Built by <a href="https://sitebladi.github.io" target="_blank">SiteBladi 🇲🇦</a></div>
   </div>
@@ -571,25 +654,121 @@ footer{background:#040404;border-top:1px solid rgba(204,0,0,0.15);padding:56px 4
   </div>
 </div>
 
-<!-- WHATSAPP -->
 <a class="wa-btn" href="https://wa.me/212667069474" target="_blank">💬</a>
 
 <script>
-const WHATSAPP='212667069474';
-const MAPS_URL='https://maps.google.com/?q=Club+Renaissance+Safi+Maroc';
+const WHATSAPP = '212667069474';
+const MAPS_URL = 'https://maps.google.com/?q=Club+Renaissance+Safi+Maroc';
 
+/* ============================================================
+   🛒 PRODUCTS_DATA — باش تضيف منتج جديد:
+   انسخ كتلة {} وعدل فيها:
+   {
+     id: رقم فريد,
+     name: 'اسم المنتج',
+     cat: 'protein | creatine | vitamins | clothing',
+     price: السعر,
+     desc: 'الوصف',
+     weight: 'الوزن/الحجم',
+     icon: '🥛',
+     bg: 'linear-gradient(135deg,#111,#222)',
+     badge: 'BEST SELLER أو فارغ',
+   },
+============================================================ */
+const PRODUCTS = [
+  {id:1,name:'Whey Protein Gold',cat:'protein',price:350,desc:'بروتين مصل اللبن — 24g بروتين لكل وجبة. مثالي بعد التمرين.',weight:'1kg — 33 وجبة',icon:'🥛',bg:'linear-gradient(135deg,#1A1A2E,#16213E)',badge:'BEST SELLER'},
+  {id:2,name:'Creatine Monohydrate',cat:'creatine',price:180,desc:'كرياتين نقي 100% — يزيد القوة والكتلة العضلية.',weight:'300g — 60 وجبة',icon:'💪',bg:'linear-gradient(135deg,#1A0000,#3D0000)',badge:'TOP RATED'},
+  {id:3,name:'BCAA Energy',cat:'protein',price:220,desc:'أحماض أمينية — تحمي العضلات وتسرع الاسترداد.',weight:'300g — 30 وجبة',icon:'⚡',bg:'linear-gradient(135deg,#001A1A,#003D3D)',badge:''},
+  {id:4,name:'Multivitamin Sport',cat:'vitamins',price:120,desc:'مجمع فيتامينات للرياضيين — يعوض ما يفقده جسمك.',weight:'90 حبة — شهر',icon:'💊',bg:'linear-gradient(135deg,#1A1A00,#3D3D00)',badge:''},
+  {id:5,name:'Pre-Workout Blast',cat:'protein',price:290,desc:'مكمل ما قبل التمرين — طاقة وتركيز لأقصى أداء.',weight:'250g — 25 وجبة',icon:'🔥',bg:'linear-gradient(135deg,#1A0A00,#3D1500)',badge:'NEW'},
+  {id:6,name:'Omega-3 Fish Oil',cat:'vitamins',price:95,desc:'أوميغا 3 — يدعم صحة القلب والمفاصل.',weight:'90 كبسولة',icon:'🐟',bg:'linear-gradient(135deg,#001A3D,#00255C)',badge:''},
+  {id:7,name:'Creatine HCL Pro',cat:'creatine',price:220,desc:'كرياتين متطور — امتصاص أسرع بدون انتفاخ.',weight:'120 كبسولة',icon:'🧪',bg:'linear-gradient(135deg,#1A0000,#2E0000)',badge:'ADVANCED'},
+  {id:8,name:'قميص Renaissance',cat:'clothing',price:150,desc:'تيشرت رياضي بشعار النادي — قماش مريح.',weight:'S / M / L / XL',icon:'👕',bg:'linear-gradient(135deg,#0A0A0A,#1A1A1A)',badge:'CLUB'},
+  {id:9,name:'شورت Training Pro',cat:'clothing',price:130,desc:'شورت تمرين بشعار Renaissance — حركة حرة.',weight:'S / M / L / XL',icon:'🩲',bg:'linear-gradient(135deg,#0A0A0A,#1A1A1A)',badge:'CLUB'},
+  {id:10,name:'ZMA Zinc & Magnesium',cat:'vitamins',price:110,desc:'يحسن النوم ويدعم إنتاج التستوستيرون الطبيعي.',weight:'90 كبسولة',icon:'🌙',bg:'linear-gradient(135deg,#0A001A,#15002E)',badge:''},
+];
+
+let cart = [];
+
+function prodHTML(p, preview=false){
+  return `<div class="prod-card" data-cat="${p.cat}" id="pc-${p.id}">
+    <div class="prod-img" style="background:${p.bg};">
+      ${p.badge?`<div class="prod-badge">${p.badge}</div>`:''}
+      ${p.icon}
+    </div>
+    <div class="prod-body">
+      <div class="prod-cat">${{protein:'بروتين',creatine:'كرياتين',vitamins:'فيتامينات',clothing:'ملابس'}[p.cat]}</div>
+      <div class="prod-name">${p.name}</div>
+      <div class="prod-desc">${p.desc}</div>
+      <div class="prod-weight">📦 ${p.weight}</div>
+      <div class="prod-footer">
+        <div class="prod-price">${p.price} <span>درهم</span></div>
+        <button class="add-btn" id="ab-${p.id}" onclick="addToCart(${p.id})">+ أضف</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderStore(){
+  const g = document.getElementById('store-grid');
+  if(g) g.innerHTML = PRODUCTS.map(p=>prodHTML(p)).join('');
+  const h = document.getElementById('home-store');
+  if(h) h.innerHTML = PRODUCTS.slice(0,3).map(p=>prodHTML(p,true)).join('');
+}
+
+function filterCat(cat, btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#store-grid .prod-card').forEach(c=>{
+    c.classList.toggle('hidden', cat!=='all' && c.dataset.cat!==cat);
+  });
+}
+
+function addToCart(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  const ex = cart.find(x=>x.id===id);
+  if(ex) ex.qty++;
+  else cart.push({...p,qty:1});
+  const btn = document.getElementById('ab-'+id);
+  if(btn){btn.textContent='✓ أضيف';btn.classList.add('added');}
+  updateCart();
+  showToast(`✓ ${p.name} أضيف للسلة`);
+}
+
+function updateCart(){
+  const count = cart.reduce((s,i)=>s+i.qty,0);
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const el = document.getElementById('cart-count');
+  const el2 = document.getElementById('cart-total');
+  const bar = document.getElementById('cart-bar');
+  if(el) el.textContent=count;
+  if(el2) el2.textContent=total;
+  if(bar) bar.classList.toggle('show',count>0);
+}
+
+function checkout(){
+  if(!cart.length) return;
+  const lines = cart.map(i=>`• ${i.name} x${i.qty} — ${i.price*i.qty} درهم`).join('\n');
+  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const msg = `السلام عليكم، أريد طلب:\n\n${lines}\n\n💰 المجموع: ${total} درهم\nأرجو التأكيد 🙏`;
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+
+// SUBS DATA
 const subs=[
   {id:'monthly',dur:'شهر واحد',durEn:'1 MONTH',price:200,save:'',pop:false,feats:['دخول غير محدود','جميع المعدات','حمامات ودش','إرشاد مجاني']},
-  {id:'quarterly',dur:'3 أشهر + شهر مجاني',durEn:'3+1 MONTHS',price:600,save:'🎁 وفر 200 درهم — شهر مجاني!',pop:true,feats:['دخول غير محدود','جميع المعدات','حمامات ودش','شهر مجاني هدية','أولوية في التمرين']},
-  {id:'biannual',dur:'6 أشهر',durEn:'6 MONTHS',price:800,save:'💰 وفر 400 درهم',pop:false,feats:['دخول غير محدود','جميع المعدات','حمامات ودش','تقييم جسم مجاني','خطة تمرين']},
-  {id:'annual',dur:'سنة كاملة',durEn:'1 YEAR',price:1000,save:'🏆 وفر 1400 درهم — الأفضل!',pop:false,feats:['دخول غير محدود','جميع المعدات','حمامات ودش','تقييم شهري','خطة متكاملة','أولوية VIP']},
+  {id:'quarterly',dur:'3 أشهر + شهر مجاني',durEn:'3+1 MONTHS',price:600,save:'🎁 وفر 200 درهم — شهر مجاني!',pop:true,feats:['دخول غير محدود','جميع المعدات','حمامات ودش','شهر مجاني','أولوية في التمرين']},
+  {id:'biannual',dur:'6 أشهر',durEn:'6 MONTHS',price:800,save:'💰 وفر 400 درهم',pop:false,feats:['دخول غير محدود','جميع المعدات','حمامات ودش','تقييم جسم','خطة تمرين']},
+  {id:'annual',dur:'سنة كاملة',durEn:'1 YEAR',price:1000,save:'🏆 وفر 1400 درهم!',pop:false,feats:['دخول غير محدود','جميع المعدات','حمامات ودش','تقييم شهري','خطة متكاملة','أولوية VIP']},
 ];
 
 function subHTML(s){return`<div class="sub-card ${s.pop?'pop':''}" onclick="subscribeNow('${s.id}','${s.dur}',${s.price})">${s.pop?'<div class="pop-badge">الأكثر اختياراً ⭐</div>':''}<div class="sub-dur">${s.durEn}</div><div class="sub-price-wrap"><div class="sub-price">${s.price}</div><div class="sub-cur">درهم</div></div><div class="sub-save">${s.save}</div><ul class="sub-feats">${s.feats.map(f=>`<li><span class="chk">✓</span>${f}</li>`).join('')}</ul><button class="sub-btn">اشترك — ${s.dur}</button></div>`;}
 
 document.getElementById('home-subs').innerHTML=subs.slice(0,3).map(subHTML).join('');
 document.getElementById('full-subs').innerHTML=subs.map(subHTML).join('');
+renderStore();
 
+// ROUTING
 function nav(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   const pg=document.getElementById('page-'+id);
@@ -612,15 +791,15 @@ function closeMenu(){
 function subscribeNow(id,name,price){
   const msg=`السلام عليكم، أريد الاشتراك:\n📦 ${name}\n💰 ${price} درهم`;
   window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`,'_blank');
-  toast(`جاري تحويلك للواتساب ✓`);
+  showToast('جاري تحويلك للواتساب ✓');
 }
 function openWA(type){
-  const msgs={coaching:'أريد حجز جلسة تقييم مجانية.',muscle:'أريد برنامج بناء كتلة.',fat:'أريد برنامج حرق دهون.',strength:'أريد برنامج قوة.',beginner:'أنا مبتدئ وأريد البدء.'};
+  const msgs={coaching:'أريد حجز جلسة تقييم.',muscle:'أريد برنامج بناء كتلة.',fat:'أريد برنامج حرق دهون.',strength:'أريد برنامج قوة.',beginner:'أنا مبتدئ وأريد البدء.'};
   window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('السلام عليكم، '+(msgs[type]||'أريد الاستفسار.'))}`, '_blank');
 }
-function openMaps(){window.open(MAPS_URL,'_blank');toast('جاري فتح Google Maps 🗺️');}
+function openMaps(){window.open(MAPS_URL,'_blank');showToast('جاري فتح Google Maps 🗺️');}
 
-function toast(msg){
+function showToast(msg){
   const t=document.getElementById('toast');
   t.textContent=msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),3000);
@@ -643,10 +822,10 @@ setTimeout(()=>{
 },1200);
 
 // SCROLL REVEAL
-new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.style.animation='fade-up 0.6s ease both';new IntersectionObserver(()=>{}).unobserve(e.target);}});
-},{threshold:0.1}).observe && document.querySelectorAll('.eq-card,.sub-card,.fac-card,.feat,.c-card,.goal-card').forEach(el=>{
-  new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.animation='fade-up 0.6s ease both';}});},{threshold:0.1}).observe(el);
+document.querySelectorAll('.eq-card,.sub-card,.fac-card,.feat,.c-card,.goal-card,.prod-card').forEach(el=>{
+  new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.style.animation='fade-up 0.6s ease both';});
+  },{threshold:0.1}).observe(el);
 });
 </script>
 </body>
