@@ -675,84 +675,737 @@ const MAPS_URL = 'https://maps.google.com/?q=Club+Renaissance+Safi+Maroc';
      badge: 'BEST SELLER أو فارغ',
    },
 ============================================================ */
+/* ═══════════════════════════════════════════════════════════════
+   CLUB RENAISSANCE SAFI — STORE MODULE v2.0
+   أضف هذا الكود في الموقع بدل الكود القديم
+   ⚠️  غيّر WHATSAPP_NUMBER برقم واتساب الحقيقي
+═══════════════════════════════════════════════════════════════ */
+
+const WHATSAPP_NUMBER = '212XXXXXXXXX'; // ← غيّر هذا
+
+/* ─── صور المنتجات (Unsplash — مجانية) ─── */
+const PRODUCT_IMAGES = {
+  1: 'https://images.unsplash.com/photo-1579722820903-11d893bcd27a?w=600&q=80',
+  2: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80',
+  3: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?w=600&q=80',
+  4: 'https://images.unsplash.com/photo-1550572017-edd951b55104?w=600&q=80',
+  5: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80',
+  6: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&q=80',
+  7: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=80',
+  8: 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80',
+  9: 'https://images.unsplash.com/photo-1483721310020-03333e577078?w=600&q=80',
+ 10: 'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=600&q=80',
+};
+
+/* ─── بيانات المنتجات الكاملة ─── */
 const PRODUCTS = [
-  {id:1,name:'Whey Protein Gold',cat:'protein',price:350,desc:'بروتين مصل اللبن — 24g بروتين لكل وجبة. مثالي بعد التمرين.',weight:'1kg — 33 وجبة',icon:'🥛',bg:'linear-gradient(135deg,#1A1A2E,#16213E)',badge:'BEST SELLER'},
-  {id:2,name:'Créatine Monohydrate 300g – BiotechUSA Original (Micronisée 200 mesh, 88 doses)',cat:'creatine',price:180,desc:'كرياتين نقي 100% — يزيد القوة والكتلة العضلية.',weight:'300g — 60 وجبة',icon:'💪',bg:'linear-gradient(135deg,#1A0000,#3D0000)',badge:'TOP RATED'},
-  {id:3,name:'BCAA Energy',cat:'protein',price:220,desc:'أحماض أمينية — تحمي العضلات وتسرع الاسترداد.',weight:'300g — 30 وجبة',icon:'⚡',bg:'linear-gradient(135deg,#001A1A,#003D3D)',badge:''},
-  {id:4,name:'Multivitamin Sport',cat:'vitamins',price:120,desc:'مجمع فيتامينات للرياضيين — يعوض ما يفقده جسمك.',weight:'90 حبة — شهر',icon:'🥶',bg:'linear-gradient(135deg,#1A1A00,#3D3D00)',badge:''},
-  {id:5,name:'Pre-Workout Blast',cat:'protein',price:290,desc:'مكمل ما قبل التمرين — طاقة وتركيز لأقصى أداء.',weight:'250g — 25 وجبة',icon:'🔥',bg:'linear-gradient(135deg,#1A0A00,#3D1500)',badge:'NEW'},
-  {id:6,name:'Omega-3 Fish Oil',cat:'vitamins',price:95,desc:'أوميغا 3 — يدعم صحة القلب والمفاصل.',weight:'90 كبسولة',icon:'🐟',bg:'linear-gradient(135deg,#001A3D,#00255C)',badge:''},
-  {id:7,name:'Creatine HCL Pro',cat:'creatine',price:220,desc:'كرياتين متطور — امتصاص أسرع بدون انتفاخ.',weight:'120 كبسولة',icon:'🧪',bg:'linear-gradient(135deg,#1A0000,#2E0000)',badge:'ADVANCED'},
-  {id:8,name:'قميص Renaissance',cat:'clothing',price:150,desc:'تيشرت رياضي بشعار النادي — قماش مريح.',weight:'S / M / L / XL',icon:'👕',bg:'linear-gradient(135deg,#0A0A0A,#1A1A1A)',badge:'CLUB'},
-  {id:9,name:'شورت Training Pro',cat:'clothing',price:130,desc:'شورت تمرين بشعار Renaissance — حركة حرة.',weight:'S / M / L / XL',icon:'🩲',bg:'linear-gradient(135deg,#0A0A0A,#1A1A1A)',badge:'CLUB'},
-  {id:10,name:'ZMA Zinc & Magnesium',cat:'vitamins',price:110,desc:'يحسن النوم ويدعم إنتاج التستوستيرون الطبيعي.',weight:'90 كبسولة',icon:'🌙',bg:'linear-gradient(135deg,#0A001A,#15002E)',badge:''},
+  {
+    id: 1,
+    name: 'Whey Protein Gold',
+    cat: 'protein',
+    price: 350,
+    weight: '1kg — 33 وجبة',
+    icon: '🥛',
+    badge: 'BEST SELLER',
+    bg: 'linear-gradient(135deg,#1A1A2E,#16213E)',
+    shortDesc: 'بروتين مصل اللبن — 24g بروتين لكل وجبة. مثالي بعد التمرين.',
+    longDesc: 'واي بروتين ذهبي مشتق من مصل اللبن عالي الجودة. يحتوي على 24g بروتين كامل الأحماض الأمينية لكل حصة. محسّن للامتصاص السريع خلال 30-45 دقيقة بعد التمرين لتحفيز نمو العضلات وتسريع التعافي.',
+    howToUse: [
+      '1 ملعقة (30g) في 200-250ml ماء أو حليب',
+      'مباشرة بعد التمرين أو كوجبة بروتينية',
+      'يمكن خلطه مع الحليب للحصول على طعم أغنى',
+      '3-5 جرعات أسبوعياً حسب احتياجاتك',
+    ],
+    nutrition: [
+      ['حجم الحصة', '30g'],
+      ['سعرات', '130 kcal'],
+      ['بروتين', '24g'],
+      ['كربوهيدرات', '3g'],
+      ['دهون', '2g'],
+      ['سكر', '1.5g'],
+    ],
+    ingredients: ['مصل اللبن المعزول', 'مصل اللبن المركز', 'ليسيتين الصويا', 'نكهة الشيكولاتة', 'سوكرالوز'],
+    certs: ['حلال', 'ISO 9001', 'مختبر معتمد', 'خالٍ من المنشطات'],
+    reviews: [
+      { name: 'كريم ب.', stars: 5, date: 'مارس 2025', txt: 'منتج ممتاز، لاحظت فرق في الكتلة العضلية بعد شهر فقط. الطعم رائع.', verified: true },
+      { name: 'سمير ت.', stars: 5, date: 'فبراير 2025', txt: 'أحسن واي بروتين جربته في سافي. الذوبان كامل ما فيهش أي حبيبات.', verified: true },
+      { name: 'رضا م.', stars: 4, date: 'يناير 2025', txt: 'جودة عالية وثمن مناسب. التعافي بعد التمرين تحسن بشكل ملحوظ.', verified: false },
+    ],
+    related: [2, 3, 5],
+  },
+  {
+    id: 2,
+    name: 'Créatine Monohydrate 300g',
+    cat: 'creatine',
+    price: 180,
+    weight: '300g — 60 وجبة',
+    icon: '💪',
+    badge: 'TOP RATED',
+    bg: 'linear-gradient(135deg,#1A0000,#3D0000)',
+    shortDesc: 'كرياتين نقي 100% — يزيد القوة والكتلة العضلية.',
+    longDesc: 'كرياتين مونوهيدرات نقي 100% — الشكل الأكثر بحثاً وفعالية علمياً لزيادة القوة والكتلة العضلية. يعمل على تجديد ATP (وقود العضلات) مما يتيح لك رفع أثقال أكبر وأداء تكرارات إضافية في كل جلسة.',
+    howToUse: [
+      'مرحلة التحميل (اختياري): 20g يومياً × 5 أيام',
+      'الجرعة اليومية: 3-5g مع الماء',
+      'بعد التمرين مع وجبة تحتوي على كربوهيدرات',
+      'اشرب 2L ماء على الأقل يومياً',
+    ],
+    nutrition: [
+      ['حجم الحصة', '5g'],
+      ['كرياتين نقي', '5g'],
+      ['سعرات', '0'],
+      ['كربوهيدرات', '0'],
+      ['بروتين', '0'],
+      ['صوديوم', '0mg'],
+    ],
+    ingredients: ['كرياتين مونوهيدرات 100% — Creapure® grade'],
+    certs: ['حلال', 'ISO 9001', 'مختبر معتمد', 'نباتي'],
+    reviews: [
+      { name: 'يوسف ع.', stars: 5, date: 'أبريل 2025', txt: 'ملاحظة ممتازة في القوة والتحمل. البنش بريس زاد بشكل مفاجئ بعد أسبوعين.', verified: true },
+      { name: 'إسماعيل ر.', stars: 5, date: 'مارس 2025', txt: 'نقاء ممتاز، ذوبانه سريع، بدون أي طعم. أنصح به لكل رياضي.', verified: true },
+      { name: 'عبد الله م.', stars: 4, date: 'فبراير 2025', txt: 'فعّال جداً. تحسن واضح في الأداء خلال أسبوعين فقط.', verified: true },
+    ],
+    related: [1, 5, 7],
+  },
+  {
+    id: 3,
+    name: 'BCAA Energy',
+    cat: 'protein',
+    price: 220,
+    weight: '300g — 30 وجبة',
+    icon: '⚡',
+    badge: '',
+    bg: 'linear-gradient(135deg,#001A1A,#003D3D)',
+    shortDesc: 'أحماض أمينية — تحمي العضلات وتسرع الاسترداد.',
+    longDesc: 'مزيج متوازن من الأحماض الأمينية المتشعبة السلسلة (لوسين، إيزولوسين، فالين) بنسبة 2:1:1 — الأكثر فعالية علمياً. يمنع هدم العضلات أثناء التمرين ويسرع التعافي بشكل ملحوظ.',
+    howToUse: [
+      'جرعة واحدة (10g) في 300-400ml ماء',
+      'أثناء التمرين أو بعده مباشرة',
+      'في أيام الراحة قبل النوم',
+      'نكهات: بطيخ، ليمون، توت أحمر',
+    ],
+    nutrition: [
+      ['حجم الحصة', '10g'],
+      ['لوسين', '5g'],
+      ['إيزولوسين', '2.5g'],
+      ['فالين', '2.5g'],
+      ['سعرات', '40 kcal'],
+      ['كافيين', '100mg'],
+    ],
+    ingredients: ['لوسين', 'إيزولوسين', 'فالين', 'كافيين طبيعي', 'حمض الستريك', 'نكهات طبيعية', 'سوكرالوز'],
+    certs: ['حلال', 'مختبر معتمد'],
+    reviews: [
+      { name: 'طارق ح.', stars: 5, date: 'مارس 2025', txt: 'أفضل BCAA جربته. التعافي بعد التمرين أصبح أسرع بكثير وآلام العضلات اختفت.', verified: true },
+      { name: 'محسن ق.', stars: 4, date: 'يناير 2025', txt: 'طعم ممتاز والطاقة التي يعطيها لطيفة وليست مفرطة.', verified: false },
+    ],
+    related: [1, 2, 5],
+  },
+  {
+    id: 4,
+    name: 'Multivitamin Sport',
+    cat: 'vitamins',
+    price: 120,
+    weight: '90 حبة — 3 أشهر',
+    icon: '🥦',
+    badge: '',
+    bg: 'linear-gradient(135deg,#1A1A00,#3D3D00)',
+    shortDesc: 'مجمع فيتامينات للرياضيين — يعوض ما يفقده جسمك.',
+    longDesc: 'تركيبة متكاملة تحتوي على 23 فيتاميناً ومعدناً ضرورياً للرياضيين. تعوض النقص الناجم عن التمرين المكثف وتحافظ على توازن الجسم الكامل: مناعة قوية، طاقة مستدامة، مفاصل مرنة.',
+    howToUse: [
+      'قرصة واحدة يومياً مع وجبة الفطور',
+      'تناولها مع كوب ماء كامل',
+      'لا تتناولها على معدة فارغة',
+      'الاستمرارية 90 يوماً للنتائج الكاملة',
+    ],
+    nutrition: [
+      ['فيتامين C', '500mg'],
+      ['فيتامين D3', '1000 IU'],
+      ['فيتامين B12', '100mcg'],
+      ['زنك', '15mg'],
+      ['ماغنيسيوم', '200mg'],
+      ['حديد', '14mg'],
+    ],
+    ingredients: ['مجمع فيتامينات B', 'فيتامين C', 'فيتامين D3', 'زنك', 'ماغنيسيوم', 'حديد', 'مستخلص الزنجبيل'],
+    certs: ['حلال', 'ISO 9001', 'وزارة الصحة المغربية', 'مختبر معتمد'],
+    reviews: [
+      { name: 'فيصل ل.', stars: 5, date: 'أبريل 2025', txt: 'شعور عام ممتاز بعد أسبوعين. الطاقة تحسنت والتعب بعد التمرين قل كثيراً.', verified: true },
+      { name: 'نورالدين ب.', stars: 4, date: 'مارس 2025', txt: 'منتج جيد، أحسه فعّال خاصة في فصل الشتاء. المناعة تحسنت.', verified: false },
+    ],
+    related: [6, 10, 3],
+  },
+  {
+    id: 5,
+    name: 'Pre-Workout Blast',
+    cat: 'protein',
+    price: 290,
+    weight: '250g — 25 وجبة',
+    icon: '🔥',
+    badge: 'NEW',
+    bg: 'linear-gradient(135deg,#1A0A00,#3D1500)',
+    shortDesc: 'مكمل ما قبل التمرين — طاقة وتركيز لأقصى أداء.',
+    longDesc: 'تركيبة قبل التمرين قوية تجمع بين الكافيين، بيتا ألانين، والأرجينين لتعطيك انفجاراً حقيقياً في الطاقة والتركيز والضخ العضلي. مصمم خصيصاً لدفعك لتجاوز حدودك في كل جلسة.',
+    howToUse: [
+      'جرعة واحدة (10g) في 200ml ماء بارد',
+      '30-40 دقيقة قبل التمرين',
+      'ابدأ بنصف جرعة لتقييم تحملك',
+      'لا تتناوله بعد الساعة 6 مساءً',
+    ],
+    nutrition: [
+      ['حجم الحصة', '10g'],
+      ['كافيين', '200mg'],
+      ['بيتا ألانين', '3.2g'],
+      ['أرجينين', '3g'],
+      ['سيترولين', '2g'],
+      ['سعرات', '25 kcal'],
+    ],
+    ingredients: ['كافيين طبيعي', 'بيتا ألانين', 'L-أرجينين', 'L-سيترولين', 'كرياتين مونوهيدرات', 'تيروزين', 'نياسين'],
+    certs: ['حلال', 'مختبر معتمد'],
+    reviews: [
+      { name: 'عمر ك.', stars: 5, date: 'أبريل 2025', txt: 'الله! تحست الفرق من التمرين الأول. الطاقة والتركيز عاليين جداً.', verified: true },
+      { name: 'بشير س.', stars: 4, date: 'مارس 2025', txt: 'منتج قوي، الـ pump في العضلات ممتاز. ننتبه للجرعة في البداية.', verified: true },
+    ],
+    related: [1, 2, 3],
+  },
+  {
+    id: 6,
+    name: 'Omega-3 Fish Oil',
+    cat: 'vitamins',
+    price: 95,
+    weight: '90 كبسولة — 3 أشهر',
+    icon: '🐟',
+    badge: '',
+    bg: 'linear-gradient(135deg,#001A3D,#00255C)',
+    shortDesc: 'أوميغا 3 — يدعم صحة القلب والمفاصل.',
+    longDesc: 'زيت السمك الغني بأحماض EPA وDHA الأساسية. يقلل الالتهابات الناجمة عن التمرين المكثف، يحافظ على مرونة المفاصل، يدعم صحة القلب والأوعية الدموية، ويحسن التركيز الذهني.',
+    howToUse: [
+      '2 كبسولة يومياً مع الطعام',
+      'يفضّل مع وجبة تحتوي على دهون لامتصاص أفضل',
+      'في الصباح أو المساء',
+      'يمكن الاستمرار به على المدى الطويل',
+    ],
+    nutrition: [
+      ['حجم الحصة', '2 كبسولة'],
+      ['EPA', '360mg'],
+      ['DHA', '240mg'],
+      ['أوميغا 3 إجمالي', '1000mg'],
+      ['سعرات', '20 kcal'],
+      ['دهون', '2g'],
+    ],
+    ingredients: ['زيت سمك نقي', 'جيلاتين (غلاف الكبسولة)', 'غليسيرين', 'ماء'],
+    certs: ['حلال', 'ISO 9001', 'مختبر معتمد', 'بدون زئبق'],
+    reviews: [
+      { name: 'أمين ص.', stars: 5, date: 'مارس 2025', txt: 'ألام المفاصل بعد التمرين تقلصت بشكل كبير. منتج ضروري لكل رياضي.', verified: true },
+      { name: 'حكيم ز.', stars: 4, date: 'فبراير 2025', txt: 'لا رائحة سمك مزعجة. الكبسولات سهلة البلع. أنصح به.', verified: true },
+    ],
+    related: [4, 10, 7],
+  },
+  {
+    id: 7,
+    name: 'Creatine HCL Pro',
+    cat: 'creatine',
+    price: 220,
+    weight: '120 كبسولة — 40 وجبة',
+    icon: '🧪',
+    badge: 'ADVANCED',
+    bg: 'linear-gradient(135deg,#1A0000,#2E0000)',
+    shortDesc: 'كرياتين متطور — امتصاص أسرع بدون انتفاخ.',
+    longDesc: 'كرياتين هيدروكلوريد (HCL) — النسخة المتطورة من الكرياتين الكلاسيكي. يذوب بالكامل في الماء وامتصاصه أسرع بـ 70% مقارنة بالمونوهيدرات. لا انتفاخ، لا احتباس مائي، مثالي لمرحلة التنشيف.',
+    howToUse: [
+      '3 كبسولات قبل التمرين أو بعده',
+      'مع كوب ماء كامل (250ml)',
+      'لا حاجة لمرحلة تحميل',
+      'مناسب لمرحلتي البناء والتنشيف',
+    ],
+    nutrition: [
+      ['حجم الحصة', '3 كبسولات'],
+      ['كرياتين HCL', '1.5g'],
+      ['سعرات', '5'],
+      ['كربوهيدرات', '0'],
+      ['بروتين', '0'],
+      ['صوديوم', '5mg'],
+    ],
+    ingredients: ['كرياتين هيدروكلوريد', 'جيلاتين (الكبسولة)', 'ثاني أكسيد السيليكون'],
+    certs: ['حلال', 'مختبر معتمد', 'خالٍ من المنشطات'],
+    reviews: [
+      { name: 'رياض م.', stars: 5, date: 'أبريل 2025', txt: 'أحسن من الكرياتين العادي. لا انتفاخ ولا ماء زائد. القوة زادت بشكل واضح.', verified: true },
+      { name: 'إلياس ب.', stars: 4, date: 'مارس 2025', txt: 'مناسب جداً لمرحلة التنشيف. الكبسولات عملية أكثر من المسحوق.', verified: false },
+    ],
+    related: [2, 1, 5],
+  },
+  {
+    id: 8,
+    name: 'قميص Renaissance',
+    cat: 'clothing',
+    price: 150,
+    weight: 'S / M / L / XL',
+    icon: '👕',
+    badge: 'CLUB',
+    bg: 'linear-gradient(135deg,#0A0A0A,#1A1A1A)',
+    shortDesc: 'تيشرت رياضي بشعار النادي — قماش مريح وعصري.',
+    longDesc: 'تيشرت رياضي أصيل بشعار كلوب رونيسانس سافي. مصنوع من قماش polyester-cotton عالي الجودة مقاوم للعرق ومريح خلال التمرين. تصميم عصري يمكن ارتداؤه داخل وخارج الصالة.',
+    howToUse: [
+      'غسيل في الغسالة على 30 درجة',
+      'لا تستخدم المبيض',
+      'تجفيف في الظل',
+      'متوفر بألوان: أسود، كحلي، رمادي',
+    ],
+    nutrition: [
+      ['الخامة', '60% Polyester'],
+      ['', '40% Cotton'],
+      ['المقاسات', 'S / M / L / XL'],
+      ['الوزن', '180g/m²'],
+      ['البلد', 'صُنع في المغرب'],
+      ['الضمان', 'استبدال خلال 7 أيام'],
+    ],
+    ingredients: ['60% بوليستر', '40% قطن', 'طباعة سيلك سكرين داخلية'],
+    certs: ['منتج محلي', 'صُنع في المغرب'],
+    reviews: [
+      { name: 'وليد ف.', stars: 5, date: 'أبريل 2025', txt: 'جودة ممتازة والقماش مريح جداً في التمرين. ارتديته في كل الجلسات.', verified: true },
+      { name: 'أنس ح.', stars: 5, date: 'مارس 2025', txt: 'التصميم حلو وأنيق. الناس بدأوا يسألوني عن النادي بسببه!', verified: true },
+    ],
+    related: [9],
+  },
+  {
+    id: 9,
+    name: 'شورت Training Pro',
+    cat: 'clothing',
+    price: 130,
+    weight: 'S / M / L / XL',
+    icon: '🩲',
+    badge: 'CLUB',
+    bg: 'linear-gradient(135deg,#0A0A0A,#1A1A1A)',
+    shortDesc: 'شورت تمرين بشعار Renaissance — حركة حرة كاملة.',
+    longDesc: 'شورت تمرين رياضي بشعار كلوب رونيسانس. قماش خفيف مرن من نوع DriFit يمتص العرق ويبقيك جافاً طوال التمرين. تصميم بدون تضييق يمنحك حرية حركة كاملة في كل التمارين.',
+    howToUse: [
+      'غسيل في الغسالة على 30 درجة',
+      'لا تستخدم المبيض',
+      'تجفيف سريع في الظل',
+      'متوفر بلون أسود وكحلي',
+    ],
+    nutrition: [
+      ['الخامة', '100% Polyester DriFit'],
+      ['المقاسات', 'S / M / L / XL'],
+      ['الوزن', '140g/m²'],
+      ['البلد', 'صُنع في المغرب'],
+      ['الجيوب', 'جيبان جانبيان'],
+      ['الضمان', 'استبدال خلال 7 أيام'],
+    ],
+    ingredients: ['100% بوليستر DriFit', 'شريط مطاط قابل للتعديل', 'طباعة نقل حراري'],
+    certs: ['منتج محلي', 'صُنع في المغرب'],
+    reviews: [
+      { name: 'مصطفى ع.', stars: 5, date: 'فبراير 2025', txt: 'خفيف ومريح، ما حسست بيه طول التمرين. القماش ممتاز جداً.', verified: true },
+      { name: 'حسن ر.', stars: 4, date: 'يناير 2025', txt: 'جودة ممتازة بالنسبة للثمن. الشعار تبع النادي حلو.', verified: false },
+    ],
+    related: [8],
+  },
+  {
+    id: 10,
+    name: 'ZMA Zinc & Magnesium',
+    cat: 'vitamins',
+    price: 110,
+    weight: '90 كبسولة — 3 أشهر',
+    icon: '🌙',
+    badge: '',
+    bg: 'linear-gradient(135deg,#0A001A,#15002E)',
+    shortDesc: 'يحسن النوم ويدعم إنتاج التستوستيرون الطبيعي.',
+    longDesc: 'مزيج ZMA الكلاسيكي: زنك، ماغنيسيوم، فيتامين B6 — تركيبة مدروسة علمياً لتحسين جودة النوم، تسريع التعافي الليلي، ودعم مستويات التستوستيرون الطبيعية. الأفضل قبل النوم مباشرة.',
+    howToUse: [
+      '3 كبسولات 30-45 دقيقة قبل النوم',
+      'على معدة فارغة للامتصاص الأمثل',
+      'تجنب تناوله مع الكالسيوم أو منتجات الألبان',
+      'دورة 8 أسابيع ثم استراحة أسبوعين',
+    ],
+    nutrition: [
+      ['حجم الحصة', '3 كبسولات'],
+      ['زنك', '30mg (273% DV)'],
+      ['ماغنيسيوم', '450mg (107% DV)'],
+      ['فيتامين B6', '10.5mg (618% DV)'],
+      ['سعرات', '10'],
+      ['بروتين', '0'],
+    ],
+    ingredients: ['زنك أسبارتات', 'ماغنيسيوم أسبارتات', 'فيتامين B6 (بيريدوكسين HCl)', 'جيلاتين (الكبسولة)'],
+    certs: ['حلال', 'مختبر معتمد', 'خالٍ من الغلوتين'],
+    reviews: [
+      { name: 'خالد ن.', stars: 5, date: 'أبريل 2025', txt: 'النوم أصبح أعمق وأهدأ. الاستيقاظ أسهل والتعافي بعد التمرين تحسن كثيراً.', verified: true },
+      { name: 'علي م.', stars: 4, date: 'مارس 2025', txt: 'منتج ممتاز للتعافي الليلي. ألاحظ فرقاً واضحاً في جودة نومي.', verified: true },
+    ],
+    related: [4, 6, 2],
+  },
 ];
 
+/* ─── حالة التطبيق ─── */
 let cart = [];
+let currentProduct = null;
 
-function prodHTML(p, preview=false){
-  return `<div class="prod-card" data-cat="${p.cat}" id="pc-${p.id}">
-    <div class="prod-img" style="background:${p.bg};">
-      ${p.badge?`<div class="prod-badge">${p.badge}</div>`:''}
-      ${p.icon}
+/* ══════════════════════════════════════════════
+   RENDER FUNCTIONS
+══════════════════════════════════════════════ */
+
+const BADGE_MAP = {
+  'BEST SELLER': 'best',
+  'TOP RATED':   'top',
+  'NEW':         'new',
+  'ADVANCED':    'adv',
+  'CLUB':        'club',
+};
+const CAT_MAP = {
+  protein:  'بروتين وأحماض',
+  creatine: 'كرياتين',
+  vitamins: 'فيتامينات',
+  clothing: 'ملابس النادي',
+};
+
+/* بطاقة المنتج */
+function prodHTML(p) {
+  const imgSrc = PRODUCT_IMAGES[p.id] || '';
+  const badgeClass = BADGE_MAP[p.badge] || '';
+
+  return `
+  <div class="prod-card" data-cat="${p.cat}" id="pc-${p.id}" onclick="openProduct(${p.id})">
+    <div class="prod-img">
+      ${p.badge ? `<div class="prod-badge ${badgeClass}">${p.badge}</div>` : ''}
+      ${imgSrc
+        ? `<img src="${imgSrc}" alt="${p.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'no-img\\'>${p.icon}</div>'">`
+        : `<div class="no-img">${p.icon}</div>`
+      }
     </div>
     <div class="prod-body">
-      <div class="prod-cat">${{protein:'بروتين',creatine:'كرياتين',vitamins:'فيتامينات',clothing:'ملابس'}[p.cat]}</div>
+      <div class="prod-cat">${CAT_MAP[p.cat] || p.cat}</div>
       <div class="prod-name">${p.name}</div>
-      <div class="prod-desc">${p.desc}</div>
+      <div class="prod-desc">${p.shortDesc}</div>
       <div class="prod-weight">📦 ${p.weight}</div>
+      <div class="prod-rating">${renderStars(avgStars(p.reviews))} <span>(${p.reviews.length})</span></div>
       <div class="prod-footer">
         <div class="prod-price">${p.price} <span>درهم</span></div>
-        <button class="add-btn" id="ab-${p.id}" onclick="addToCart(${p.id})">+ أضف</button>
+        <button class="add-btn" id="ab-${p.id}" onclick="event.stopPropagation(); addToCart(${p.id})">+ أضف</button>
       </div>
     </div>
   </div>`;
 }
 
-function renderStore(){
-  const g = document.getElementById('store-grid');
-  if(g) g.innerHTML = PRODUCTS.map(p=>prodHTML(p)).join('');
-  const h = document.getElementById('home-store');
-  if(h) h.innerHTML = PRODUCTS.slice(0,3).map(p=>prodHTML(p,true)).join('');
+/* نجوم التقييم */
+function renderStars(n) {
+  const full  = Math.round(n);
+  const empty = 5 - full;
+  return '★'.repeat(full) + '☆'.repeat(empty);
 }
 
-function filterCat(cat, btn){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('#store-grid .prod-card').forEach(c=>{
-    c.classList.toggle('hidden', cat!=='all' && c.dataset.cat!==cat);
+function avgStars(reviews) {
+  if (!reviews.length) return 0;
+  return reviews.reduce((s, r) => s + r.stars, 0) / reviews.length;
+}
+
+/* ══════════════════════════════════════════════
+   STORE RENDER
+══════════════════════════════════════════════ */
+function renderStore() {
+  const grid = document.getElementById('store-grid');
+  if (grid) grid.innerHTML = PRODUCTS.map(prodHTML).join('');
+
+  const home = document.getElementById('home-store');
+  if (home) home.innerHTML = PRODUCTS.slice(0, 3).map(prodHTML).join('');
+}
+
+/* ══════════════════════════════════════════════
+   FILTER
+══════════════════════════════════════════════ */
+function filterCat(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  document.querySelectorAll('#store-grid .prod-card').forEach(c => {
+    c.classList.toggle('hidden', cat !== 'all' && c.dataset.cat !== cat);
   });
 }
 
-function addToCart(id){
-  const p = PRODUCTS.find(x=>x.id===id);
-  const ex = cart.find(x=>x.id===id);
-  if(ex) ex.qty++;
-  else cart.push({...p,qty:1});
-  const btn = document.getElementById('ab-'+id);
-  if(btn){btn.textContent='✓ أضيف';btn.classList.add('added');}
-  updateCart();
+/* ══════════════════════════════════════════════
+   CART
+══════════════════════════════════════════════ */
+function addToCart(id) {
+  const p  = PRODUCTS.find(x => x.id === id);
+  const ex = cart.find(x => x.id === id);
+  if (ex) ex.qty++;
+  else cart.push({ ...p, qty: 1 });
+
+  /* تحديث زر الإضافة */
+  const btn = document.getElementById('ab-' + id);
+  if (btn) {
+    btn.textContent = '✓ أضيف';
+    btn.classList.add('added');
+    setTimeout(() => {
+      btn.textContent = '+ أضف';
+      btn.classList.remove('added');
+    }, 2000);
+  }
+
+  updateCartUI();
   showToast(`✓ ${p.name} أضيف للسلة`);
 }
 
-function updateCart(){
-  const count = cart.reduce((s,i)=>s+i.qty,0);
-  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
-  const el = document.getElementById('cart-count');
-  const el2 = document.getElementById('cart-total');
-  const bar = document.getElementById('cart-bar');
-  if(el) el.textContent=count;
-  if(el2) el2.textContent=total;
-  if(bar) bar.classList.toggle('show',count>0);
+function removeFromCart(id) {
+  cart = cart.filter(x => x.id !== id);
+  updateCartUI();
+  renderCartDrawer();
 }
 
-function checkout(){
-  if(!cart.length) return;
-  const lines = cart.map(i=>`• ${i.name} x${i.qty} — ${i.price*i.qty} درهم`).join('\n');
-  const total = cart.reduce((s,i)=>s+i.price*i.qty,0);
-  const msg = `السلام عليكم، أريد طلب:\n\n${lines}\n\n💰 المجموع: ${total} درهم\nأرجو التأكيد 🙏`;
-  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`,'_blank');
+function changeQty(id, delta) {
+  const item = cart.find(x => x.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(x => x.id !== id);
+  updateCartUI();
+  renderCartDrawer();
 }
+
+function updateCartUI() {
+  const count = cart.reduce((s, i) => s + i.qty, 0);
+  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+
+  const elCount = document.getElementById('cart-count');
+  const elTotal = document.getElementById('cart-total');
+  const elBar   = document.getElementById('cart-bar');
+  const elBadge = document.getElementById('cart-badge');
+
+  if (elCount) elCount.textContent = count;
+  if (elTotal) elTotal.textContent = total;
+  if (elBar)   elBar.classList.toggle('show', count > 0);
+  if (elBadge) elBadge.textContent = count;
+}
+
+function renderCartDrawer() {
+  const el = document.getElementById('cart-items-list');
+  if (!el) return;
+
+  if (!cart.length) {
+    el.innerHTML = '<p class="empty-cart-msg">السلة فارغة</p>';
+    const footer = document.getElementById('cart-drawer-footer');
+    if (footer) footer.style.display = 'none';
+    return;
+  }
+
+  el.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <div class="cart-item-img">${PRODUCT_IMAGES[item.id]
+        ? `<img src="${PRODUCT_IMAGES[item.id]}" alt="${item.name}">`
+        : item.icon}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">${item.price * item.qty} درهم</div>
+        <div class="cart-item-qty">
+          <button onclick="changeQty(${item.id}, -1)">−</button>
+          <span>${item.qty}</span>
+          <button onclick="changeQty(${item.id}, +1)">+</button>
+          <button class="cart-item-del" onclick="removeFromCart(${item.id})">حذف</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  const total  = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const elTot  = document.getElementById('cart-drawer-total');
+  const footer = document.getElementById('cart-drawer-footer');
+  if (elTot)  elTot.textContent = total;
+  if (footer) footer.style.display = 'block';
+}
+
+/* ══════════════════════════════════════════════
+   PRODUCT DETAIL MODAL
+══════════════════════════════════════════════ */
+function openProduct(id) {
+  currentProduct = PRODUCTS.find(p => p.id === id);
+  if (!currentProduct) return;
+  const p = currentProduct;
+
+  /* اسم + صورة */
+  const modal = document.getElementById('product-modal');
+  if (!modal) return;
+
+  setEl('modal-prod-name',   p.name);
+  setEl('modal-prod-cat',    CAT_MAP[p.cat] || p.cat);
+  setEl('modal-prod-price',  p.price + ' درهم');
+  setEl('modal-prod-weight', p.weight);
+  setEl('modal-prod-desc',   p.longDesc);
+  setEl('modal-prod-rating', renderStars(avgStars(p.reviews)) + ` (${p.reviews.length} تقييم)`);
+
+  /* صورة */
+  const imgEl = document.getElementById('modal-prod-img');
+  if (imgEl) {
+    if (PRODUCT_IMAGES[p.id]) {
+      imgEl.innerHTML = `<img src="${PRODUCT_IMAGES[p.id]}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;border-radius:8px;">`;
+    } else {
+      imgEl.innerHTML = `<div style="font-size:72px;text-align:center;">${p.icon}</div>`;
+    }
+  }
+
+  /* شهادات */
+  const certsEl = document.getElementById('modal-prod-certs');
+  if (certsEl) {
+    certsEl.innerHTML = p.certs.map(c => `<span class="cert-tag">${certIcon(c)} ${c}</span>`).join('');
+  }
+
+  /* كيفية الاستخدام */
+  const howEl = document.getElementById('modal-prod-how');
+  if (howEl) {
+    howEl.innerHTML = p.howToUse.map((step, i) => `
+      <div class="how-step">
+        <div class="how-num">${i + 1}</div>
+        <div class="how-txt">${step}</div>
+      </div>
+    `).join('');
+  }
+
+  /* القيم الغذائية */
+  const nutEl = document.getElementById('modal-prod-nutrition');
+  if (nutEl) {
+    nutEl.innerHTML = `
+      <table class="nut-table">
+        <thead><tr><th>العنصر</th><th>الكمية</th></tr></thead>
+        <tbody>
+          ${p.nutrition.map(([k, v]) => `<tr><td>${k}</td><td><strong>${v}</strong></td></tr>`).join('')}
+        </tbody>
+      </table>
+    `;
+  }
+
+  /* المكونات */
+  const ingEl = document.getElementById('modal-prod-ingredients');
+  if (ingEl) {
+    ingEl.innerHTML = p.ingredients.map(i => `<span class="ing-tag">${i}</span>`).join('');
+  }
+
+  /* آراء العملاء */
+  const revEl = document.getElementById('modal-prod-reviews');
+  if (revEl) {
+    const avg = avgStars(p.reviews).toFixed(1);
+    revEl.innerHTML = `
+      <div class="reviews-summary">
+        <div class="reviews-avg">${avg}</div>
+        <div>
+          <div class="stars-big">${renderStars(Math.round(avg))}</div>
+          <div class="reviews-count">${p.reviews.length} تقييم موثق</div>
+        </div>
+      </div>
+      ${p.reviews.map(r => `
+        <div class="review-card">
+          <div class="review-header">
+            <div>
+              <div class="review-name">${r.name}</div>
+              <div class="review-stars">${renderStars(r.stars)}</div>
+            </div>
+            <div class="review-date">${r.date}</div>
+          </div>
+          <div class="review-text">${r.txt}</div>
+          ${r.verified ? '<div class="review-verified">✓ عملية شراء موثقة</div>' : ''}
+        </div>
+      `).join('')}
+    `;
+  }
+
+  /* زر الإضافة داخل المودال */
+  const addBtn = document.getElementById('modal-add-btn');
+  if (addBtn) {
+    addBtn.onclick = () => {
+      addToCart(p.id);
+      addBtn.textContent = '✓ أضيف للسلة';
+      addBtn.classList.add('added');
+      setTimeout(() => {
+        addBtn.textContent = '+ أضف للسلة';
+        addBtn.classList.remove('added');
+      }, 2000);
+    };
+  }
+
+  /* منتجات مشابهة */
+  const relEl = document.getElementById('modal-related');
+  if (relEl && p.related) {
+    relEl.innerHTML = p.related
+      .map(rid => PRODUCTS.find(x => x.id === rid))
+      .filter(Boolean)
+      .map(rp => `
+        <div class="related-card" onclick="openProduct(${rp.id})">
+          <div class="related-img">${PRODUCT_IMAGES[rp.id]
+            ? `<img src="${PRODUCT_IMAGES[rp.id]}" alt="${rp.name}">`
+            : rp.icon}</div>
+          <div>
+            <div class="related-name">${rp.name}</div>
+            <div class="related-price">${rp.price} درهم</div>
+          </div>
+        </div>
+      `).join('');
+  }
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProduct() {
+  const modal = document.getElementById('product-modal');
+  if (modal) modal.classList.remove('open');
+  document.body.style.overflow = '';
+  currentProduct = null;
+}
+
+/* ══════════════════════════════════════════════
+   CHECKOUT via WhatsApp
+══════════════════════════════════════════════ */
+function checkout() {
+  if (!cart.length) return;
+  const lines = cart.map(i => `• ${i.name} x${i.qty} — ${i.price * i.qty} درهم`).join('\n');
+  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const msg = `السلام عليكم، أريد طلب من متجر كلوب رونيسانس:\n\n${lines}\n\n💰 المجموع: ${total} درهم\n\nأرجو التأكيد 🙏`;
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+/* ══════════════════════════════════════════════
+   TOAST
+══════════════════════════════════════════════ */
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('store-toast');
+  if (!t) return;
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+/* ══════════════════════════════════════════════
+   HELPERS
+══════════════════════════════════════════════ */
+function setEl(id, val) {
+  const el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
+
+function certIcon(cert) {
+  if (cert.includes('حلال'))    return '☪️';
+  if (cert.includes('ISO'))     return '🏅';
+  if (cert.includes('وزارة'))  return '🏛️';
+  if (cert.includes('مختبر'))  return '🔬';
+  if (cert.includes('نباتي'))  return '🌱';
+  if (cert.includes('منشط'))   return '🚫';
+  if (cert.includes('منتج'))   return '🇲🇦';
+  return '✓';
+}
+
+/* ══════════════════════════════════════════════
+   INIT — يُستدعى عند تحميل الصفحة
+══════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', () => {
+  renderStore();
+
+  /* إغلاق المودال عند الضغط على الخلفية */
+  const modal = document.getElementById('product-modal');
+  if (modal) {
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeProduct();
+    });
+  }
+
+  /* إغلاق بالـ Escape */
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeProduct();
+  });
+});
 
 // SUBS DATA
 const subs=[
